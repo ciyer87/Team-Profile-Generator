@@ -10,7 +10,9 @@ function generateTeam(team){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-        <title>Portfolio Demo</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Team Profile Generator</title>
     </head>
     
     <body>
@@ -20,9 +22,11 @@ function generateTeam(team){
                     <h1 class="text-center">My Team</h1>
                 </div>
             </div>
+        </div> 
+        <div class="container">   
             <div class = "row">
                 <div class="team-area col-12 d-flex justify-content-center">
-                    ${generateCards(team)};
+                    ${generateCards(team)}
                 </div>
             </div>
         </div>        
@@ -51,10 +55,10 @@ function generateCards(team){
 
 function generateManagerCard(manager){
     return ` 
-                    <div class="card employee-card">
+                    <div class="card employee-card col-4">
                         <div class="card-header">
                             <h2 class="card-title">${manager.getName()}</h2>
-                            <h3 class="card-title"> <i class="fas fa-mug-hot"></i>${manager.getRole()}</h3>
+                            <h3 class="card-title"> <i class="fas fa-mug-hot"></i> ${manager.getRole()}</h3>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
@@ -69,10 +73,10 @@ function generateManagerCard(manager){
 
 function generateEngineerCard(engineer){
     return ` 
-                    <div class="card employee-card">
+                    <div class="card employee-card col-4">
                         <div class="card-header">
                             <h2 class="card-title">${engineer.getName()}</h2>
-                            <h3 class="card-title"><i class="fas fa-glasses"></i>${engineer.getRole()}</h3>
+                            <h3 class="card-title"><i class="fas fa-glasses"></i> ${engineer.getRole()}</h3>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
@@ -87,10 +91,10 @@ function generateEngineerCard(engineer){
 
 function generateInternCard(intern){
     return ` 
-                    <div class="card employee-card">
+                    <div class="card employee-card col-4">
                         <div class="card-header">
                             <h2 class="card-title">${intern.getName()}</h2>
-                            <h3 class="card-title"><i class="fas fa-user-graduate"></i>${intern.getRole()}</h3>
+                            <h3 class="card-title"><i class="fas fa-user-graduate"></i> ${intern.getRole()}</h3>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
