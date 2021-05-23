@@ -1,8 +1,12 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 const generatePage = require('./src/page-template.js');
+const {writeFile, copyFile} = require('./utils/generate-site.js');
 
-
+const teamMembers = [];
 const startApp = () => {
 
     // Initial questions for adding a Manager
@@ -63,6 +67,8 @@ const startApp = () => {
 
         ])
             .then(answers => {
+                const manager = new Manager(answers.managerName, answers.id, answers.managerEmail, answers.officeNumber);
+                teamMembers.push(manager);
                 console.log(answers);
                 createNewTeamMember();
             })
@@ -126,7 +132,9 @@ const startApp = () => {
 
         ])
             .then(answers => {
-                console.log(answers)
+                console.log(answers);
+                const engineer = new Engineer(answers.engineerName, answers.id, answers.engineerEmail, answers.gitHub);
+                teamMembers.push(engineer);
                 createNewTeamMember();
             })
     }
@@ -190,6 +198,8 @@ const startApp = () => {
         ])
             .then(answers => {
                 console.log(answers);
+                const intern = new Intern(answers.internName, answers.id, answers.internEmail, answers.school);
+                teamMembers.push(intern);
                 createNewTeamMember();
             })
     }
@@ -212,9 +222,12 @@ const startApp = () => {
                     addIntern();
                 }
                 else {
+                    console.log(teamMembers);
                     //const pageHTML = generatePage(teamMembers);
-                    
-                    console.log('Done');
+                    writeFile(generatePage(teamMembers));
+                    console.log('File created!');
+                    copyFile();
+                    console.log('Stylesheet Copied');
                     
                 }
             })
