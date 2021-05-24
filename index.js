@@ -1,5 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+var isValid = require( 'validate.io-email-address' );
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -43,7 +44,8 @@ const startApp = () => {
                 name: 'managerEmail',
                 message: 'What is the team manager\'s e-mail?',
                 validate: answerInput => {
-                    if (answerInput) {
+                    if (isValid(answerInput)) {
+                        
                         return true;
                     } else {
                         console.log('Please enter the team manager\'s e-mail!');
@@ -108,7 +110,7 @@ const startApp = () => {
                 name: 'engineerEmail',
                 message: 'What is the engineer\'s e-mail?',
                 validate: answerInput => {
-                    if (answerInput) {
+                    if (isValid(answerInput)){
                         return true;
                     } else {
                         console.log('Please enter the engineer\'s e-mail!');
@@ -173,7 +175,7 @@ const startApp = () => {
                 name: 'internEmail',
                 message: 'What is the intern\'s e-mail?',
                 validate: answerInput => {
-                    if (answerInput) {
+                    if (isValid(answerInput)){
                         return true;
                     } else {
                         console.log('Please enter the intern\'s e-mail!');

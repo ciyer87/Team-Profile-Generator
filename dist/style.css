@@ -132,6 +132,10 @@ h1 {
     flex-direction: column;
     flex-wrap: wrap;
   }
+
+  .col-4 {
+      margin: 5px 5px 20px 10px;
+  }
   
   .justify-space-between {
     justify-content: space-between;
@@ -169,7 +173,8 @@ h1 {
     flex-grow: 1;
   }
 
-  @media screen and (max-width: 480px) {
+
+  @media screen and (max-width: 768px) {
       
     .d-flex{
         flex-direction: column;
@@ -187,7 +192,7 @@ h1 {
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 1200px) {
       .col-4 {
           flex-basis: 33.33%;
       }
