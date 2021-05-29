@@ -66,7 +66,6 @@ const startApp = () => {
                     }
                 }
             },
-
         ])
             .then(answers => {
                 const manager = new Manager(answers.managerName, answers.id, answers.managerEmail, answers.officeNumber);
@@ -131,7 +130,6 @@ const startApp = () => {
                     }
                 }
             },
-
         ])
             .then(answers => {
                 console.log(answers);
@@ -196,7 +194,6 @@ const startApp = () => {
                     }
                 }
             },
-
         ])
             .then(answers => {
                 console.log(answers);
@@ -225,7 +222,6 @@ const startApp = () => {
                 }
                 else {
                     console.log(teamMembers);
-                    //const pageHTML = generatePage(teamMembers);
                     writeFile(generatePage(teamMembers));
                     console.log('File created!');
                     copyFile();
